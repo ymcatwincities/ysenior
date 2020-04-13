@@ -1,7 +1,0 @@
-twelve_app.settings:
-  path: '/admin/openy/twelve_app'
-  defaults:
-    _form: '\Drupal\twelve_app\Form\SettingsForm'
-    _title: 'Twelve App'
-  requirements:
-    _permission: 'administer content'

@@ -1,9 +1,0 @@
-uuid: f30cadec-f186-43e4-96fc-08789f3f0aae
-langcode: en
-status: true
-dependencies: {  }
-id: today_progress_app
-label: 'Today Progress App'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

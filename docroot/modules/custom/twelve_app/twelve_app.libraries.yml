@@ -1,6 +1,0 @@
-day_progress:
-  version: 0.1
-  js:
-    frontend/dist/main.js: {}
-  dependencies:
-    - openy_system/vue

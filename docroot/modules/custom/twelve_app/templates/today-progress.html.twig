@@ -1,9 +1,0 @@
-{{ attach_library('twelve_app/day_progress') }}
-
-<div id="twelve_day_progress_app">
-  <today-progress
-    :excercises='{{ excercises|json_encode }}'
-    :completion_url='{{ completion_url|json_encode }}'
-    :current_nid='{{ current_nid }}'
-  ></today-progress>
-</div>
