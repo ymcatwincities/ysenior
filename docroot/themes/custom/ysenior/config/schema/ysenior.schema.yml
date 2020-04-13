@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the Open Y Carnation theme.
+
+ysenior.settings:
+  type: theme_settings
+  label: 'Open Y Ysenior settings'
