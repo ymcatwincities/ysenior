@@ -1,0 +1,21 @@
+uuid: 664d59a9-0660-4190-b303-f04fc724cf9b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  abstract: '12Bursts gets your family moving with 12 5-minute Bursts of daily physical activity you can complete anytime, anywhere.'
+  canonical_url: '[current-page:url]'
+  description: '12Bursts gets your family moving with 12 5-minute Bursts of daily physical activity you can complete anytime, anywhere. With 12Bursts, no two days are the same as the challenge resets daily to encourage a variety of activities and maximize the fun.'
+  keywords: '12 bursts, daily activity, kids'
+  title: '[current-page:title] | [site:name]'
+  og_title: '12 Bursts activities for kids and families'
+  og_type: article
+  og_image_secure_url: '[site:url]sites/default/files/2020-04/boy-running_0.jpg'
+  og_url: 'https://12bursts.org'
+  og_site_name: '12Bursts | activities for kids and families'
+  og_description: '12Bursts gets your family moving with 12 5-minute Bursts of daily physical activity you can complete anytime, anywhere. With 12Bursts, no two days are the same as the challenge resets daily to encourage a variety of activities and maximize the fun.'
+  og_image: '[site:url]sites/default/files/2020-04/boy-running_0.jpg'

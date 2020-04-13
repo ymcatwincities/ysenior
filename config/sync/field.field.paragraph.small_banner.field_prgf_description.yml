@@ -1,0 +1,23 @@
+uuid: 9e69b8e2-1a7b-4ab3-b97e-9bedb5db2e00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_description
+    - paragraphs.paragraphs_type.small_banner
+  module:
+    - text
+_core:
+  default_config_hash: PZau1FQSthswvS5D8LaY6qsYIBdpybSfQdnSvFzKMyU
+id: paragraph.small_banner.field_prgf_description
+field_name: field_prgf_description
+entity_type: paragraph
+bundle: small_banner
+label: Description
+description: 'WYSIWYG field without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

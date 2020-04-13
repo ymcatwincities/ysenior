@@ -1,0 +1,34 @@
+uuid: 3897e470-d9a3-4244-9eff-042333fcb218
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block
+    - paragraphs.paragraphs_type.today_progress_app
+  module:
+    - datalayer
+    - plugin
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_block
+id: paragraph.today_progress_app.field_block
+field_name: field_block
+entity_type: paragraph
+bundle: today_progress_app
+label: Block
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    plugin_id: today_progress
+    plugin_configuration:
+      id: today_progress
+      label: '12 bursts today progress'
+      provider: twelve_app
+      label_display: '0'
+    plugin_configuration_schema_id: block.settings.today_progress
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

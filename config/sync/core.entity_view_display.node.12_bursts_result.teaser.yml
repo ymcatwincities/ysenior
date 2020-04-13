@@ -1,0 +1,25 @@
+uuid: faf537d9-a806-4e13-b232-e3b14e50ca04
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.12_bursts_result.field_finished_items
+    - field.field.node.12_bursts_result.field_when
+    - node.type.12_bursts_result
+  module:
+    - user
+id: node.12_bursts_result.teaser
+targetEntityType: node
+bundle: 12_bursts_result
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_finished_items: true
+  field_when: true
+  langcode: true

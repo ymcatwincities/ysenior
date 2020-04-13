@@ -1,0 +1,27 @@
+uuid: 64c03f4a-d037-417f-ab07-aebfc3a49e75
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer-menu-left
+  module:
+    - system
+  theme:
+    - openy_lily
+_core:
+  default_config_hash: DxXFP021p2RT513rdOTWsfo1J1DzoxPOTjwyC7DRiXw
+id: openy_lily_footermenuleft
+theme: openy_lily
+region: footer_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:footer-menu-left'
+settings:
+  id: 'system_menu_block:footer-menu-left'
+  label: 'Footer menu left'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

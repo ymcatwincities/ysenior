@@ -1,0 +1,6 @@
+openy_system.twelve_app_settings:
+  title: 'Twelve App Settings'
+  description: 'Configure Node'
+  parent: openy_system.openy
+  route_name: twelve_app.settings
+  weight: 200

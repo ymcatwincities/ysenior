@@ -1,0 +1,25 @@
+uuid: 1386f4bf-608c-4985-9b83-cbc79b0ea4f8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:5a8a33f6-b59a-4fc6-b693-0aa2a7759994'
+  module:
+    - block_content
+  theme:
+    - twelve_carnation
+id: copyright
+theme: twelve_carnation
+region: footer_copyright
+weight: 0
+provider: null
+plugin: 'block_content:5a8a33f6-b59a-4fc6-b693-0aa2a7759994'
+settings:
+  id: 'block_content:5a8a33f6-b59a-4fc6-b693-0aa2a7759994'
+  label: copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

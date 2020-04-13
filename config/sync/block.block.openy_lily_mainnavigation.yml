@@ -1,0 +1,27 @@
+uuid: 0fbd127f-144e-48bb-85e5-4b91105f1e9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - openy_lily
+_core:
+  default_config_hash: 3vRIlzlRvyue9XuEPigqnlDz50Lvl3gd-n2Me8CdaFA
+id: openy_lily_mainnavigation
+theme: openy_lily
+region: mobile_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

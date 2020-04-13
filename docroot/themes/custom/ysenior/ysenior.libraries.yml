@@ -1,0 +1,16 @@
+global-styling:
+  version: VERSION
+  css:
+    base:
+      //fonts.googleapis.com/css?family=Ubuntu+Condensed:400,700: {}
+      //fonts.googleapis.com/css?family=Open+Sans:400,600: {}
+    theme:
+      dist/css/style.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/jquery.ui.tabs
+    - core/jquery.ui.core
+    - core/jquery.ui.widget
+    - core/drupal
+    - core/drupalSettings

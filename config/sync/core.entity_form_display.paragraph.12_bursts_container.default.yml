@@ -1,0 +1,26 @@
+uuid: e0330f5b-977a-4715-a47f-587b2b10784d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.12_bursts_container.field_excercises
+    - paragraphs.paragraphs_type.12_bursts_container
+id: paragraph.12_bursts_container.default
+targetEntityType: paragraph
+bundle: 12_bursts_container
+mode: default
+content:
+  field_excercises:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,27 @@
+uuid: 3ac5fd49-1a8a-4e94-83fe-f8cf08476d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - twelve_carnation
+_core:
+  default_config_hash: r4TWk2-XNsu6t_KnTwq-4kC4g_EHMrPV0SFDbN3Jb9s
+id: twelve_carnation_main_menu
+theme: twelve_carnation
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 4
+  expand_all_items: false
+visibility: {  }

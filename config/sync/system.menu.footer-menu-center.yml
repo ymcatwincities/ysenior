@@ -1,0 +1,10 @@
+uuid: 5e55d2e7-b30b-451f-925f-a4e6ba1e3cbe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bcBwAJ0cZHlr-X9R6QBLcH3HJ5fBNJtXY0ZjLi6-gTU
+id: footer-menu-center
+label: 'Footer menu center'
+description: 'Center footer menu'
+locked: false

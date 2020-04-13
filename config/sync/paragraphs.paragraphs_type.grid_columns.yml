@@ -1,0 +1,11 @@
+uuid: 63376f80-8fa5-4db3-9ff9-fa61191031c6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZnIPDL9oCu0JhXN6PG6k9XC6rFPQj9NHFIfPIn6s6JI
+id: grid_columns
+label: 'Grid columns'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

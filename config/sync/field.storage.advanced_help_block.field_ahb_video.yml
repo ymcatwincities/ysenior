@@ -1,0 +1,23 @@
+uuid: 9bff02ed-a4e4-49b1-a826-736dd8a59f9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_help_block
+_core:
+  default_config_hash: 1jzkyhaXdE6SA-PxxrmoNfa-jBeS_jVPhsePqpK1dOc
+id: advanced_help_block.field_ahb_video
+field_name: field_ahb_video
+entity_type: advanced_help_block
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

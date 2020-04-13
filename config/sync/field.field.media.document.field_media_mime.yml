@@ -1,0 +1,21 @@
+uuid: b7cab830-3e81-45d1-9e4c-17c9ac15de80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_mime
+    - media.type.document
+_core:
+  default_config_hash: j8BJ2g3BLl8RYsBUu3hwY_DhpDovIZb1guaqd5xwcfs
+id: media.document.field_media_mime
+field_name: field_media_mime
+entity_type: media
+bundle: document
+label: 'Mime Type'
+description: 'This field stores the mime type of the document.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

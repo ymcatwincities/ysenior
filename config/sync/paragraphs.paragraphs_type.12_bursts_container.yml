@@ -1,0 +1,9 @@
+uuid: c5634142-94f8-45f4-b2b4-fed54c966bfe
+langcode: en
+status: true
+dependencies: {  }
+id: 12_bursts_container
+label: '12 Bursts Container'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

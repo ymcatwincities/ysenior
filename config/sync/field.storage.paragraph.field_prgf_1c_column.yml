@@ -1,0 +1,22 @@
+uuid: d066571e-8c7b-44ba-a98f-5baf291a1f7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - paragraphs
+_core:
+  default_config_hash: 8O8YU9Syft7SzmJDfJ3NszSSfJwqB9GQLw4qp56a_Ek
+id: paragraph.field_prgf_1c_column
+field_name: field_prgf_1c_column
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

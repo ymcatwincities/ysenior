@@ -1,0 +1,22 @@
+uuid: f5a3e338-cbdc-4af6-a0bf-d636076171fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - openy_lily
+_core:
+  default_config_hash: dJk9lKdrBJcOXmVD5VCpjYYLiD_yRcJ6_wkk8ul9wDc
+id: openy_lily_breadcrumbs
+theme: openy_lily
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 9eb35884-3bce-48c4-8af7-5ae3a6e1f305
+langcode: en
+status: true
+dependencies: {  }
+id: branch_contacts_info
+label: 'Branch Contacts Info'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - openy_gtranslate
+  theme:
+    - openy_lily
+_core:
+  default_config_hash: Cb7D2U0sQ9k9ugF2m6Top6ACtqrpxRjwkiwlmpujmsQ
+id: openy_lily_googletranslate
+theme: openy_lily
+region: secondary_menu
+weight: 49
+provider: null
+plugin: openy_gtranslate_block
+settings:
+  id: openy_gtranslate_block
+  label: 'OpenY Google Translate'
+  provider: openy_gtranslate
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: 91c36f56-642a-4667-8625-1660bd245baf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EHGNbRRkX97v7nAm3ZWqFslj21BRDPrSLHOy8MaTl0M
+id: simple_block
+label: 'Simple Block'
+revision: 0
+description: 'A simple block with a body and title.'

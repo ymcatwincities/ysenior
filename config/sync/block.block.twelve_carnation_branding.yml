@@ -1,0 +1,25 @@
+uuid: 4e7cbd7a-76d6-4e37-994c-474894925f7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - twelve_carnation
+_core:
+  default_config_hash: GBDpF5YHfHdH-M__tbrOQ64nyUurCL8IXo9CaWGisGo
+id: twelve_carnation_branding
+theme: twelve_carnation
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

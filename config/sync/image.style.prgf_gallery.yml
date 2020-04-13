@@ -1,0 +1,17 @@
+uuid: e8488f0f-5c95-49c2-af26-5c2983a0baf2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XDqvXUYnRtJkC5TKIqamiPNRHyGjHA_q8EjNr7FOo64
+name: prgf_gallery
+label: 'Paragraph gallery'
+effects:
+  a28a3a7d-3c49-46fb-a977-0f48980df4e2:
+    uuid: a28a3a7d-3c49-46fb-a977-0f48980df4e2
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: false

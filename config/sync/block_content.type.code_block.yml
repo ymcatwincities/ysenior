@@ -1,0 +1,10 @@
+uuid: 0bf0c950-8f20-450a-bb61-bd9ae990557e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gd0xPrTJ17fHfHZ7_hk9jk-dzkl5khe3zw3HI0UdoCY
+id: code_block
+label: 'Code Block'
+revision: 0
+description: 'A block with a code.'

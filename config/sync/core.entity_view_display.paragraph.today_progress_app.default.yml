@@ -1,0 +1,22 @@
+uuid: 8cae985b-eb6b-4329-a439-443d9ae8eb40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.today_progress_app.field_block
+    - paragraphs.paragraphs_type.today_progress_app
+  module:
+    - plugin
+id: paragraph.today_progress_app.default
+targetEntityType: paragraph
+bundle: today_progress_app
+mode: default
+content:
+  field_block:
+    weight: 0
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden: {  }

@@ -1,0 +1,11 @@
+uuid: af202ee2-d969-4615-99d6-903b66951ec0
+langcode: en
+status: true
+dependencies: {  }
+id: api
+label: api
+weight: 5
+is_admin: null
+permissions:
+  - 'create 12_bursts_result content'
+  - 'edit own 12_bursts_result content'

@@ -1,0 +1,27 @@
+uuid: 70999051-65b5-41d3-8de1-adc227bf861a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic_block:e350fe26-bc73-4c69-af18-a51a052dbcd3'
+  module:
+    - block_content
+  theme:
+    - twelve_carnation
+_core:
+  default_config_hash: MUvZBCze0SK_KrpezpdLM8JmY0iWQ4p691BlHXtpyww
+id: twelve_carnation_footersocialblock
+theme: twelve_carnation
+region: footer_social
+weight: -7
+provider: null
+plugin: 'block_content:e350fe26-bc73-4c69-af18-a51a052dbcd3'
+settings:
+  id: 'block_content:e350fe26-bc73-4c69-af18-a51a052dbcd3'
+  label: 'Footer Social Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
