@@ -1,0 +1,28 @@
+uuid: 1e9a271a-c36c-42c0-8075-5c56973bd839
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_fax
+    - node.type.branch
+  module:
+    - datalayer
+    - telephone
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_fax
+_core:
+  default_config_hash: r0izaZtfOjanzKTWObC75dldbNPzVkC67QTuabpT1BE
+id: node.branch.field_location_fax
+field_name: field_location_fax
+entity_type: node
+bundle: branch
+label: Fax
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

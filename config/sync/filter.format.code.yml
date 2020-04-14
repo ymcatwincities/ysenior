@@ -1,0 +1,24 @@
+uuid: c04d09a2-b30d-4678-af8e-8943ceb67ce5
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_embed
+_core:
+  default_config_hash: R6lEkijTRXRiMEjnNTdWLJyEKB64OrcSSfHtoTCmZR8
+name: Code
+format: code
+weight: 20
+filters:
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  entity_embed:
+    id: entity_embed
+    provider: entity_embed
+    status: true
+    weight: 0
+    settings: {  }

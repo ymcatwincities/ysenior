@@ -1,0 +1,48 @@
+@import 'twelve_app/exercise_list';
+@import 'twelve_app/introduce_form';
+@import 'twelve_app/exercise_timer';
+
+.paragraph--type--today-progress-app {
+  .label-for-field-block {
+    display: none;
+  }
+}
+
+#twelve_day_progress_app {
+  padding-top: 20px;
+
+  .message {
+    padding-top: 30px;
+  }
+}
+
+#twelve_day_progress_app .visually-disabled {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+//ie only hack
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  #twelve_day_progress_app .today-progress-item {
+    margin-bottom: 10px;
+  }
+
+  #twelve_day_progress_app .today-progress-item .checkbox {
+    display: none;
+  }
+
+  #twelve_day_progress_app .today-progress-item .title, #twelve_day_progress_app .today-progress-item .description {
+    margin-left: 20px;
+  }
+
+  #block-twelve-carnation-main-menu .navbar {
+    float: right;
+  }
+
+  .user-login-container .modal-dialog {
+    width: 343px;
+  }
+}

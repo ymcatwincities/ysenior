@@ -1,0 +1,11 @@
+uuid: a3136ea8-9b75-4dcf-aa15-cf57a50a5e12
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: x527jtK8lc_Sakq609cFrmng5pAmVmSKya9Tc0F2Us0
+id: 2c
+label: '2 columns'
+icon_uuid: null
+description: 'Paragraph with 2 columns.'
+behavior_plugins: {  }

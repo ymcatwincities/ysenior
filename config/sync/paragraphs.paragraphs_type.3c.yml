@@ -1,0 +1,11 @@
+uuid: b517771b-02d9-4421-bf86-11c7655deae5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hgV6ChDmyJzySOJXvKshJiXa5Jhy5mgm_GzJ1uyKm5k
+id: 3c
+label: '3 columns'
+icon_uuid: null
+description: 'Paragraph with 3 columns.'
+behavior_plugins: {  }

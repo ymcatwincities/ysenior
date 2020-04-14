@@ -1,0 +1,23 @@
+uuid: b0c660e7-077a-4f6d-86bf-f8bb40391e59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_description
+    - paragraphs.paragraphs_type.4c
+  module:
+    - text
+_core:
+  default_config_hash: Bexsgwk7XOd3a6XR-_a7QstKpMM5gvo2SBOLyVNYS4M
+id: paragraph.4c.field_prgf_description
+field_name: field_prgf_description
+entity_type: paragraph
+bundle: 4c
+label: Description
+description: 'Description to display under Paragraph section title'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

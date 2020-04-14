@@ -1,0 +1,25 @@
+uuid: cb97b850-e89c-4421-902a-2ce4d9bb37b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic_block
+    - field.field.block_content.basic_block.field_block_content
+  module:
+    - text
+_core:
+  default_config_hash: H1TAqWLWX2tAt1UsELIGxkEeFr7DFOfDpDj3vexff74
+id: block_content.basic_block.default
+targetEntityType: block_content
+bundle: basic_block
+mode: default
+content:
+  field_block_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  langcode: true

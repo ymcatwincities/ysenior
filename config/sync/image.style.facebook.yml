@@ -1,0 +1,17 @@
+uuid: 9b0e36d9-69c3-4be7-a6cd-01a28bcebb52
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xoJicumP4O2ga-x94ZFV7pdmfFi2C7zZfnY_0ow8HtU
+name: facebook
+label: Facebook
+effects:
+  37a1500e-ff58-4927-83b4-2defb4c07397:
+    uuid: 37a1500e-ff58-4927-83b4-2defb4c07397
+    id: image_scale
+    weight: 1
+    data:
+      width: 600
+      height: 315
+      upscale: false

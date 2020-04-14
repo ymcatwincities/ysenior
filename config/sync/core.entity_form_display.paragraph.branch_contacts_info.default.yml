@@ -1,0 +1,17 @@
+uuid: f05b7ca9-ac0e-4b7e-bf1c-ef66c22d9b5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.branch_contacts_info.field_branch_contacts_info
+    - paragraphs.paragraphs_type.branch_contacts_info
+id: paragraph.branch_contacts_info.default
+targetEntityType: paragraph
+bundle: branch_contacts_info
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_branch_contacts_info: true
+  status: true
+  uid: true

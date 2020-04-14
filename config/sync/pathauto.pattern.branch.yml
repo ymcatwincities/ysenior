@@ -1,0 +1,24 @@
+uuid: c3f56d6e-25ca-4558-a627-2b5d7de9e606
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: dDR59_yccFRULEnze1VtTD6Gx9hjazkr4NyI80NDLU4
+id: branch
+label: Branch
+type: 'canonical_entities:node'
+pattern: '/locations/[node:title]'
+selection_criteria:
+  336f574d-d937-4358-b529-fbcb5147a442:
+    id: node_type
+    bundles:
+      branch: branch
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 336f574d-d937-4358-b529-fbcb5147a442
+selection_logic: and
+weight: -5
+relationships: {  }

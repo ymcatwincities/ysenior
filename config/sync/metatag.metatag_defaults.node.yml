@@ -1,0 +1,14 @@
+uuid: c89d4c54-f1d2-4d27-8a6e-e64e3c324d28
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: JLox0uZUEEITbbZKTNi-Y2k0F37Svu4xET51XVjp1Dg
+id: node
+label: Content
+tags:
+  canonical_url: '[node:path]'
+  description: '[node:summary]'
+  title: '[node:title] | [site:name]'
+  og_title: '[node:title]'
+  og_url: '[node:path]'

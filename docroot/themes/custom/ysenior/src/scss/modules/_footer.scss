@@ -1,0 +1,159 @@
+.footer {
+  background-color: $cyan;
+  color: $white;
+  font-size: 18px;
+  padding-bottom: 0;
+  //margin-top: 45px; this makes gap between footer and content_bottom banner
+  border-top: 0 solid;
+
+  ul {
+    margin: 0;
+  }
+
+  #block-footeraddress {
+    ul.address-list {
+      position: relative;
+      padding-left: 30px;
+
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    ul.address-list::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "\e943";
+      font-family: "icomoon" !important;
+      font-size: 20px;
+      vertical-align: text-top;
+      display: inline-block;
+      color: $dark-gray;
+    }
+  }
+
+  #block-footertel {
+    ul.address-list {
+      position: relative;
+      padding-left: 30px;
+
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    ul.address-list::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "\e943";
+      font-family: "icomoon" !important;
+      font-size: 20px;
+      vertical-align: text-top;
+      display: inline-block;
+      color: $dark-gray;
+    }
+
+    ul.tel-list {
+      position: relative;
+      padding-left: 30px;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+
+    ul.tel-list::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "\e93c";
+      font-family: "icomoon" !important;
+      font-size: 20px;
+      vertical-align: text-top;
+      display: inline-block;
+      color: $dark-gray;
+    }
+  }
+
+  #block-footeremail p {
+    a:hover {
+      text-decoration: underline !important;
+      color: $primary;
+    }
+
+    a::before {
+      font-family: "icomoon" !important;
+      content: "\eb47";
+      font-size: 20px;
+      vertical-align: text-top;
+      display: inline-block;
+      margin-top: -4px;
+      margin-right: 4px;
+      color: $light-blue;
+    }
+  }
+
+  // social media
+  .fa {
+    width: 28px;
+    color: transparent !important;
+    font-size: 28px;
+    transition: all 0.3s linear 0s;
+    font-family: $font-awesome-brands;
+
+    &:before {
+      color: $white;
+    }
+  }
+
+  .list-inline li:hover .fa::before {
+    color: $primary;
+  }
+
+  // copyright
+  .footer__copyright {
+    background: $gray-400;
+    font-size: 15px;
+    color: $white;
+
+    .block-openy-carnation-footer-menu-right-menu {
+      ul {
+        text-align: right;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-right: 8px;
+          display: inline-block;
+
+          a {
+            font-size: 15px;
+            padding: 0;
+            color: $white;
+
+            &:hover {
+              color: $white;
+              background: none;
+              text-decoration: underline !important;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-copy-links {
+      @include media-breakpoint-down(sm) {
+        padding-top: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.mobile-menu.menu-in {
+  .navbar-toggler-icon::before {
+    content: "X";
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 27px;
+  }
+  .navbar-toggler-icon {
+    background-image: initial;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+}

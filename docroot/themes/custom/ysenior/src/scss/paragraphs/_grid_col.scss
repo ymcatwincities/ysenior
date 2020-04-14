@@ -1,0 +1,130 @@
+.paragraph--column-in-a-grid {
+  .col-12:first-child {
+    h2 {
+      color: $teal;
+    }
+    i.fa {
+      color: $teal;
+    }
+
+    .more-link a {
+      background: $teal;
+    }
+  }
+
+  .col-12:nth-child(2) {
+    h2 {
+      color: $teal;
+    }
+    i.fa {
+      color: $teal;
+    }
+
+    .more-link a {
+      background: $teal;
+    }
+  }
+
+  .col-12:last-child {
+    h2 {
+      color: $teal;
+    }
+    i.fa {
+      color: $teal;
+    }
+
+    .more-link a {
+      background: $teal;
+    }
+  }
+
+  .col-12 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+
+    .paragraph--type--grid-columns {
+      border: none;
+      background: $white;
+      box-shadow: 0 3px 30px 2px rgba($black, 0.05);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .content {
+    /*updated*/
+    padding: 30px !important;
+  }
+
+  .inner {
+    h2 {
+      /*updated*/
+      height: 50px;
+      font-size: 24px;
+      letter-spacing: -0.6px;
+      line-height: 36px;
+      font-weight: 500;
+
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 2px solid;
+      display: inline-block;
+      margin: 0;
+    }
+
+    i {
+      font-size: 30px;
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 21px;
+      text-align: left;
+    }
+
+    img {
+      max-width: 480px;
+      height: auto;
+      border-radius: 0;
+    }
+
+    .more-link {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+
+      span {
+        position: relative;
+        left: -50%;
+        background: $white;
+      }
+
+      a {
+        @include cachet();
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 44px;
+        letter-spacing: -1px;
+        text-align: center;
+        display: inline-block;
+        color: $white;
+        min-width: 180px;
+        border-radius: 8px;
+        margin: 0;
+        padding: 8px 20px;
+        background-color: $cyan;
+        border: 2px solid $white;
+
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+    }
+  }
+}

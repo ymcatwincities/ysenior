@@ -1,0 +1,22 @@
+uuid: c4313208-9b6e-4027-a3cd-4cd40ad2ce97
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ysenior
+_core:
+  default_config_hash: pbs47hscNMPDOhFQMYww_7XBPj2TehG3DTJViRQIPyo
+id: ysenior_content
+theme: ysenior
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

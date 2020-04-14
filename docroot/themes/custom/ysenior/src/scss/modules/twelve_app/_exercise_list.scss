@@ -1,0 +1,65 @@
+#twelve_day_progress_app .container {
+  display: grid;
+  grid-gap: 30px 15px;
+  margin-top: 45px;
+  padding: 0;
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .today-progress-item {
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-template-rows: max-content auto;
+
+    border: 2px solid $light-blue;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .checkbox {
+      margin-top: 16px;
+      grid-row-end: span 2;
+      justify-self: center;
+      cursor: pointer;
+      height: 22px;
+      width: 23px;
+      background-image: url(../img/task1.png);
+      background-size: cover;
+    }
+
+    .checkbox.checked {
+      background-image: url(../img/task2.png);
+    }
+
+    .title {
+      padding: 10px 10px 0 0;
+
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: bold;
+      color: $dark-blue
+    }
+
+    .description {
+      padding: 10px 10px 10px 0;
+
+      font-size: 12px;
+      line-height: 18px;
+      color: $gray-900;
+    }
+  }
+
+  .today-progress-item.checked {
+    border: 2px solid $golden;
+    .title, .description {
+      color: $golden;
+    }
+  }
+}

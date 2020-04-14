@@ -1,0 +1,10 @@
+uuid: 11e57097-598f-4f1e-84ec-49354b056390
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wiVB6fmC5V41SjOlS63yvvvvK3boZHDCPJNXCNAzk04
+id: footer-menu-right
+label: 'Footer menu right'
+description: 'Right footer menu'
+locked: false

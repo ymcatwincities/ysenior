@@ -1,0 +1,22 @@
+uuid: b83f999c-a122-440b-be74-85fda6782664
+langcode: en
+status: true
+dependencies:
+  module:
+    - openy_gtranslate
+  theme:
+    - openy_carnation
+_core:
+  default_config_hash: F0D__AHggODFz3Zyg6-cFb1LEmPWAdCPtxgK4o3BTEE
+id: openy_carnation_gtranslate_mobile
+theme: openy_carnation
+region: top_menu
+weight: null
+provider: null
+plugin: openy_gtranslate_block
+settings:
+  id: openy_gtranslate_block
+  label: 'OpenY Google Translate (mobile)'
+  provider: openy_gtranslate
+  label_display: '0'
+visibility: {  }

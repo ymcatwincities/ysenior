@@ -1,0 +1,22 @@
+uuid: 5e65c702-43dd-4232-ab4f-128b59547ede
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+_core:
+  default_config_hash: bhJhwYnJ5LArUCQFDfRkvXtJvfr1eWNxvN9bO3PQiR0
+id: paragraph.field_prgf_color
+field_name: field_prgf_color
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

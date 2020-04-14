@@ -1,0 +1,27 @@
+uuid: 3aec6ac3-650d-41fc-a050-c11eac399383
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - ysenior
+_core:
+  default_config_hash: mludHN-SKf9Kt5x6e6FDp5U1EKdfch0vGVd3Hni1BGM
+id: ysenior_mainnavigation_mobile
+theme: ysenior
+region: mobile_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation (mobile)'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

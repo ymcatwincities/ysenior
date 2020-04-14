@@ -1,0 +1,11 @@
+uuid: 03f8bfec-5614-45d4-8b82-2016decdb79e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ssviJwXh2B9RrVAmxWEbg6S8rIbFZ_KV_BohF-O-dps
+id: 1c
+label: '1 column'
+icon_uuid: null
+description: 'Paragraph with 1 column.'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: cd95a00c-ff3d-40d0-b8f7-d43e9c6df195
+langcode: en
+status: true
+dependencies:
+  theme:
+    - openy_carnation
+_core:
+  default_config_hash: pt14UkhlPczcOsFA_jJ8WYzR83_3qli69y-jstvXe70
+id: openy_carnation_footersocialblock
+theme: openy_carnation
+region: footer_social
+weight: -8
+provider: null
+plugin: 'block_content:e350fe26-bc73-4c69-af18-a51a052dbcd3'
+settings:
+  id: 'block_content:e350fe26-bc73-4c69-af18-a51a052dbcd3'
+  label: 'Footer Social Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

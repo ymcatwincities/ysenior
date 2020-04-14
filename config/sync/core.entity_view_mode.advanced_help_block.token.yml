@@ -1,0 +1,10 @@
+uuid: ad6cc452-8228-4387-a5c1-9ea7fffe135b
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_help_block
+id: advanced_help_block.token
+label: Token
+targetEntityType: advanced_help_block
+cache: true

@@ -1,0 +1,21 @@
+uuid: b3ef4652-6beb-43cb-9690-831f8e0e7798
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_clm_headline
+    - paragraphs.paragraphs_type.grid_columns
+_core:
+  default_config_hash: EW-M43ea1v0AXg_Mr3q8tDxtSljLRyIGPqX1VxKUNGI
+id: paragraph.grid_columns.field_prgf_clm_headline
+field_name: field_prgf_clm_headline
+entity_type: paragraph
+bundle: grid_columns
+label: Headline
+description: 'Headline of the grid content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

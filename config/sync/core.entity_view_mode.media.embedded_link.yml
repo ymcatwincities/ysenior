@@ -1,0 +1,12 @@
+uuid: aae40f17-703c-4834-832c-c9fe98726b77
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: RS554x5_g_O-RkYR2KGiWgpA1BEw56szymkPj3gcBBI
+id: media.embedded_link
+label: Link
+targetEntityType: media
+cache: true

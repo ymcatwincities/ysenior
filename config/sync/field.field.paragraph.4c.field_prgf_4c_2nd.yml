@@ -1,0 +1,31 @@
+uuid: 89824dd6-623b-43f3-96a7-8ac8b25d1e11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_4c_2nd
+    - paragraphs.paragraphs_type.4c
+_core:
+  default_config_hash: eHEHv2uAThoch-9qjm1_GFDVCUqqVWA-yh9_Z8mO5jk
+id: paragraph.4c.field_prgf_4c_2nd
+field_name: field_prgf_4c_2nd
+entity_type: paragraph
+bundle: 4c
+label: 'Second Column'
+description: 'Enter second column body.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default_no_dep:block_content'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: 1
+    auto_create_bundle: flexible_content
+    target_bundles_no_dep:
+      flexible_content: flexible_content
+      simple_block: simple_block
+field_type: entity_reference

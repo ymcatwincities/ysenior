@@ -1,0 +1,22 @@
+uuid: 82638da5-36c8-44fd-aaef-24e6f7fcefed
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - openy_carnation
+_core:
+  default_config_hash: pbs47hscNMPDOhFQMYww_7XBPj2TehG3DTJViRQIPyo
+id: openy_carnation_content
+theme: openy_carnation
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
