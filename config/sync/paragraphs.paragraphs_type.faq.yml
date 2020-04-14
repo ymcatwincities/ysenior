@@ -1,0 +1,11 @@
+uuid: b47538f2-c360-4223-b4fd-06df7105d87a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: crlMehZz1DDubADsmb-DJshmDT0zp-EmllByLt7CYCc
+id: faq
+label: FAQ
+icon_uuid: null
+description: null
+behavior_plugins: {  }

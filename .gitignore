@@ -4,6 +4,7 @@
 Thumbs.db
 
 # Ignore Development tool files.
+*.map
 .idea
 node_modules
 files

@@ -1,0 +1,22 @@
+uuid: 57855a6b-59a1-424b-b87f-77bb378f91c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ysenior
+_core:
+  default_config_hash: dY9m3G_ZoRe3GwrJ4QeOEr_jiLodA2hGDft2MtDb18k
+id: ysenior_breadcrumbs
+theme: ysenior
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

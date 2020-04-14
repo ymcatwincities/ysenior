@@ -1,0 +1,14 @@
+uuid: 892c0bbe-6d1c-4fd6-b0ce-04ea870d3f9c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Zgn1ZztVgjvOsaqy5KxYWrvMkKUuQnd7ju3czyan_W8
+id: crop_1920_700
+label: 'Crop 1920×700'
+description: 'Used in Gallery paragraph'
+aspect_ratio: '1920:700'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 1920
+hard_limit_height: 700

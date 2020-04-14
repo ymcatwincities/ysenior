@@ -1,0 +1,25 @@
+uuid: b7bb042e-76ed-4eab-8ffa-6a2677eaf51d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alert_link
+    - node.type.alert
+  module:
+    - link
+_core:
+  default_config_hash: knuUCQFmqJuszzGHnxnNcQ2GASBE7p5DdsIISHOoACc
+id: node.alert.field_alert_link
+field_name: field_alert_link
+entity_type: node
+bundle: alert
+label: Link
+description: 'Internal or external link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

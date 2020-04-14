@@ -1,0 +1,22 @@
+uuid: 3b7c159c-de72-4c89-a83f-aad782b83eb4
+langcode: en
+status: false
+dependencies:
+  theme:
+    - ysenior
+_core:
+  default_config_hash: X_vJXAbVhgIXAtLVcg27fJT4VQnrG1uV_aMS--VybDU
+id: ysenior_tabs
+theme: ysenior
+region: content
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

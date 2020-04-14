@@ -1,0 +1,20 @@
+uuid: 71ed815b-ec70-4cc5-9e62-7ef3ae0e2526
+langcode: en
+status: true
+dependencies:
+  module:
+    - openy_gtranslate
+  theme:
+    - ysenior
+id: openygoogletranslate_2
+theme: ysenior
+region: top_menu
+weight: 0
+provider: null
+plugin: openy_gtranslate_block
+settings:
+  id: openy_gtranslate_block
+  label: 'Open Y Google Translate'
+  provider: openy_gtranslate
+  label_display: '0'
+visibility: {  }

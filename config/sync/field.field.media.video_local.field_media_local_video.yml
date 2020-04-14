@@ -1,0 +1,28 @@
+uuid: 1f4a5ce7-85df-41e9-97c4-b86bea7d804e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_local_video
+    - media.type.video_local
+  module:
+    - video
+_core:
+  default_config_hash: U87KdTi7U-NfVJbooJtg4OvxlWDqlqhqzZ4A6v4kNus
+id: media.video_local.field_media_local_video
+field_name: field_media_local_video
+entity_type: media
+bundle: video_local
+label: 'Local Video'
+description: 'Please upload a video.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_extensions: ''
+  file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: video

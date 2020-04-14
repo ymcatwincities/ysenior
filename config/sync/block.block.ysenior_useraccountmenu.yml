@@ -1,0 +1,27 @@
+uuid: a25e97df-126a-4db4-a3dc-802e3f1bf133
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - ysenior
+_core:
+  default_config_hash: 0Ydlqo-z-2lhrgYaEsdCdm3T0KbgGBoFFIW2gD7ohlE
+id: ysenior_useraccountmenu
+theme: ysenior
+region: top_menu
+weight: -8
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

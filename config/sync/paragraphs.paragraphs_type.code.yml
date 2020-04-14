@@ -1,0 +1,11 @@
+uuid: 668e63c2-e3c2-4101-afb9-45d5a02e0e99
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2wmN3N5DWCNDurXcUg4Xx2UGNX4JmXpDXgEtTQfwEC4
+id: code
+label: Code
+icon_uuid: null
+description: null
+behavior_plugins: {  }

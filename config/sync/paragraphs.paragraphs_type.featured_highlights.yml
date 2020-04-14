@@ -1,0 +1,11 @@
+uuid: 9d19fa9c-6b35-49ee-8149-a72769306172
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Svsq2HS_F9eiSZRQxhcElbgMDc_6cp0E6odhjnTsIhU
+id: featured_highlights
+label: 'Featured Highlights'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

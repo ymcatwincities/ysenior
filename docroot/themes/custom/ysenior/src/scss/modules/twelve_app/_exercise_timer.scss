@@ -1,0 +1,47 @@
+#twelve_day_progress_app {
+  .modal.show {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .modal-dialog {
+    width: 340px;
+
+    .modal-content {
+      .modal-body {
+        .description {
+          font-size: 12px;
+          line-height: 18px;
+          color: $gray-900;
+        }
+      }
+
+      .modal-footer {
+        .countdown {
+          border: 2px solid $dark-blue;
+          width: 100%;
+          border-radius: .25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          color: $dark-blue;
+          height: 48px;
+        }
+
+        .btn {
+          margin-top: 10px;
+        }
+
+        .btn-gold {
+          background-color: $golden;
+          border-color: $golden;
+
+          img {
+            width: 25px;
+          }
+        }
+      }
+    }
+  }
+}

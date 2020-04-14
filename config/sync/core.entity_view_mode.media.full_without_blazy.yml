@@ -1,0 +1,12 @@
+uuid: 8dde6b29-44c2-4fba-abc3-b4ce64494de6
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: H-41VwtRo8yTJ72OlB4LP6oJri4z9mjkorUojWM6NVU
+id: media.full_without_blazy
+label: 'Full without Blazy'
+targetEntityType: media
+cache: true

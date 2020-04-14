@@ -1,0 +1,21 @@
+uuid: 955a361c-de4b-4f17-a5c8-d3fb145528f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - plugin
+_core:
+  default_config_hash: Wj-0x3zz8g1KaTQPbESu_35btorkicBI_KUVwRW2cDs
+id: paragraph.field_prgf_block
+field_name: field_prgf_block
+entity_type: paragraph
+type: 'plugin:block'
+settings: {  }
+module: plugin
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

@@ -1,0 +1,12 @@
+uuid: 33bf8b4f-9aeb-46ea-b5f6-fa354dfa9be4
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: SCX4KHzv--ajUsFGFTwWx9PHFqlsRAY6bI6dpY1O-0M
+id: media.thumbnail_for_preview
+label: 'Thumbnail for preview'
+targetEntityType: media
+cache: true

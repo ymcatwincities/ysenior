@@ -1,0 +1,35 @@
+uuid: 3639c4d6-5292-4d69-be83-28efd8dd717c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_news_posts.field_prgf_block
+    - field.field.paragraph.latest_news_posts.field_prgf_title
+    - paragraphs.paragraphs_type.latest_news_posts
+  module:
+    - plugin
+_core:
+  default_config_hash: WuwsTXmzJ1sRmSrEvRavwTDFK9zqDTsRozCOcWOunJc
+id: paragraph.latest_news_posts.default
+targetEntityType: paragraph
+bundle: latest_news_posts
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+  field_prgf_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  uid: true

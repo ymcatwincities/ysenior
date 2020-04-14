@@ -1,0 +1,16 @@
+uuid: 68c33ea4-0947-49e9-bc08-0f8bc4452729
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: B2cOqOVUxrXtec_BbAeBER83xQsJN0nRFYOYBi8gWZg
+id: image
+label: Image
+description: 'Use Image for uploading locally hosted images.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_image
+  gather_exif: false
+field_map: {  }

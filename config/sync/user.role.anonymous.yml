@@ -1,0 +1,15 @@
+uuid: df90538c-9fed-4fac-b71b-3c52366ec1e8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZSZsITwtAhr6iOLgsWSCzrzSYTVkh5gKkN24vJAqqcI
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access popups'
+  - 'restful get alerts_rest_resource'
+  - 'view media'

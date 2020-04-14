@@ -1,0 +1,26 @@
+uuid: 5c3cd885-7d3f-49d1-9c56-e868260beada
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.code.field_prgf_code_block
+    - paragraphs.paragraphs_type.code
+_core:
+  default_config_hash: h2kYkZauHoYAdpk01AfP32yAy-49k0j3xe_1uKAYjuc
+id: paragraph.code.default
+targetEntityType: paragraph
+bundle: code
+mode: default
+content:
+  field_prgf_code_block:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

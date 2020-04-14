@@ -1,0 +1,22 @@
+uuid: f68a945b-3dd5-448a-938c-37a5c3f65f4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: KKty6mjPmIwnZY_qQ192JAd0ivjgO0XgSxn7QSUMiIU
+id: media.field_media_size
+field_name: field_media_size
+entity_type: media
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

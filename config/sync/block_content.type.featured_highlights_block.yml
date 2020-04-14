@@ -1,0 +1,10 @@
+uuid: 4352cfff-b47d-473c-ae51-5c0a3614bd09
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LB4iPDJoNbQn-5-jxf3ZM8uGAEaLrr4ykeYjPxiwhd8
+id: featured_highlights_block
+label: 'Featured Highlights Block'
+revision: 0
+description: 'The Featured Highlights Block.'

@@ -1,0 +1,27 @@
+uuid: 0eba7dce-fbbb-4d38-a11f-ac8eef065400
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - ysenior
+_core:
+  default_config_hash: XHfgjFTrLi3YajQN-kcq1LfNaY9CqFMeZGmR3RCPYUI
+id: ysenior_main_menu
+theme: ysenior
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 4
+  expand_all_items: false
+visibility: {  }

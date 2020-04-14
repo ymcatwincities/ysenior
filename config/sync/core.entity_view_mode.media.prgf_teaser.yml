@@ -1,0 +1,12 @@
+uuid: 37d2842b-df04-4705-92d6-6583f013b78f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: zGk5U1UbCf_Gr4IiwSH-agEaA2Qe6MgOYnUoe8teRR8
+id: media.prgf_teaser
+label: 'Paragraph teaser'
+targetEntityType: media
+cache: true
