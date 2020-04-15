@@ -6,11 +6,7 @@
   //margin-top: 45px; this makes gap between footer and content_bottom banner
   border-top: 0 solid;
 
-  margin-top: 20px;
-
-  @include media-breakpoint-up(lg) {
-    margin-top: 60px;
-  }
+  margin-top: 60px;
 
   ul {
     margin: 0;
