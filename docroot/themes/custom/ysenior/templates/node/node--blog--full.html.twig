@@ -82,13 +82,19 @@
 {# default header #}
 {% include '@openy_carnation/node/include/header-default.html.twig' %}
 
-<div class="container mt-5">
+<div class="container mt-5 node--blog--full">
   <div class="row">
     <div class="col-12 back-to-blog text-left">
       <a href="{{ back_link_path }}">
         <i class="glyphicon glyphicon-chevron-left"></i>
         {{ back_link_title }}
       </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ label }}</h1>
     </div>
   </div>
 
