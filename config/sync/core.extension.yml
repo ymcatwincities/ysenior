@@ -2,6 +2,7 @@ module:
   action: 0
   address: 0
   admin_toolbar: 0
+  admin_toolbar_tools: 0
   advanced_help_block: 0
   blazy: 0
   block: 0
@@ -98,6 +99,7 @@ module:
   openy_migrate: 0
   openy_node: 0
   openy_node_alert: 0
+  openy_node_blog: 0
   openy_node_landing: 0
   openy_node_news: 0
   openy_prgf: 0
@@ -106,8 +108,11 @@ module:
   openy_prgf_3c: 0
   openy_prgf_4c: 0
   openy_prgf_banner: 0
+  openy_prgf_blog_latest: 0
+  openy_prgf_blog_listing: 0
   openy_prgf_code_block: 0
   openy_prgf_faq: 0
+  openy_prgf_featured_blogs: 0
   openy_prgf_featured_highlights: 0
   openy_prgf_featured_news: 0
   openy_prgf_gallery: 0
@@ -124,6 +129,7 @@ module:
   openy_taxonomy: 0
   openy_tour: 0
   openy_txnm_amenities: 0
+  openy_txnm_blog_category: 0
   openy_txnm_color: 0
   openy_txnm_news_category: 0
   openy_update: 0
@@ -159,6 +165,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  verf: 0
   video: 0
   video_embed_field: 0
   video_embed_media: 0

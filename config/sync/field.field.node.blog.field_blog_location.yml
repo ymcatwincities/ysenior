@@ -1,0 +1,36 @@
+uuid: f3fb430d-8cb1-4703-9ce8-431b5a4aade4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_location
+    - node.type.blog
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_blog_location
+_core:
+  default_config_hash: X4wwORdcD-FsqL_ywnMNi5PZ2AAtZO9jXgermXT6gkw
+id: node.blog.field_blog_location
+field_name: field_blog_location
+entity_type: node
+bundle: blog
+label: Locations
+description: 'Reference field to branch and camp nodes. Multiple Values.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default_no_dep:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: branch
+    target_bundles_no_dep:
+      branch: branch
+field_type: entity_reference
