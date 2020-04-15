@@ -1,13 +1,20 @@
 .mobile-menu.menu-in {
+  background-color: $dark-green-aa !important;
+
   .navbar-toggler-icon::before {
     content: "X";
     font-weight: bold;
     font-size: 28px;
     line-height: 27px;
+    font-family: "Cachet", Verdana, sans-serif;
   }
   .navbar-toggler-icon {
     background-image: initial;
     border: 1px solid white;
     border-radius: 5px;
   }
+}
+
+.mobile-sidebar {
+  background-color: $dark-green-aa;
 }
