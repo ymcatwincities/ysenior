@@ -78,10 +78,6 @@
   margin: 10px;
   padding: 10px;
 
-  @include media-breakpoint-up(md) {
-
-  }
-
   @include media-breakpoint-up(lg) {
     grid-template-columns: 362px 1fr;
     grid-template-rows: 54px 30px auto;
