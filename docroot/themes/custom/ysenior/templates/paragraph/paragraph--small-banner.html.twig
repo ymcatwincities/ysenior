@@ -64,10 +64,17 @@
         <h1 class="banner-title text-uppercase m-0 text-white">
           {{ content.field_prgf_headline }}
         </h1>
-        {{ content.field_prgf_description }}
       {% endif %}
-
     </div>
   </div>
 </div>
+{% if not paragraph.field_prgf_description.isEmpty() %}
+  <div class="banner-small-description">
+    <div class="backdrop">
+    </div>
+    <div class="text">
+      {{ content.field_prgf_description }}
+    </div>
+  </div>
+{% endif %}
 

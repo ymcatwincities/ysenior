@@ -100,16 +100,54 @@
 }
 
 .node--blog--full {
+  h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+}
+
+.side-col {
   .card {
+    border: none;
+    padding: 0;
+
+    .card-body {
+      padding: 0;
+    }
+
     .card-body > div > span:nth-child(1) {
+      display: block;
       font-family: Cachet, Verdana, sans-serif;
       font-size: 18px;
       line-height: 27px;
       color: $gray-900;
+      text-transform: uppercase;
+      margin-bottom: 15px;
     }
 
     span.comma-list {
+      display: block;
 
+      .item {
+        display: block;
+        border: 1px solid $teal;
+        border-radius: 15px;
+        padding: 6px 10px;
+        width: fit-content;
+        margin-bottom: 15px;
+
+        a {
+          font-family: Verdana, sans-serif;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 21px;
+          color: $teal;
+        }
+
+        &:after {
+          content: "";
+        }
+      }
     }
   }
 }
