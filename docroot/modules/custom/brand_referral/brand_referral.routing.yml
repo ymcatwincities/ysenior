@@ -1,0 +1,7 @@
+brand_referral.settings:
+  path: '/admin/openy/brand_referral'
+  defaults:
+    _form: '\Drupal\brand_referral\Form\ReferralSettingsForm'
+    _title: 'Referral white-list'
+  requirements:
+    _permission: 'administer content'

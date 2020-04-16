@@ -18,3 +18,50 @@
 .mobile-sidebar {
   background-color: $dark-green-aa;
 }
+
+.with-banner {
+  .layout-container {
+    .mobile-menu.affix {
+      background-color: $dark-green-aa !important;
+      opacity: 80%;
+    }
+  }
+}
+
+.mobile-menu {
+  .list {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 60px 1fr;
+
+    .yslogan {
+      justify-self: left;
+      padding: 10px;
+      font-size: 13px;
+      font-family: Verdana;
+      font-weight: 900;
+      color: $white;
+
+      a {
+        font-family: Verdana;
+        color: $white;
+
+        &:before {
+          font-size: 13px;
+          padding-right: 10px;
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+
+    .ylogo {
+      width: 60px;
+      overflow: hidden;
+      justify-self: center;
+    }
+
+    .ybutton {
+      justify-self: end;
+    }
+  }
+}

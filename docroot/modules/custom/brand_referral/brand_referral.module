@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function brand_referral_preprocess_page(&$variables) {
+  $variables['#attached']['drupalSettings']['brand_referral'] = explode("\n", \Drupal::config('brand_referral.settings')
+    ->get('white_list'));
+  $variables['#attached']['library'][] = 'brand_referral/brand_change';
+}

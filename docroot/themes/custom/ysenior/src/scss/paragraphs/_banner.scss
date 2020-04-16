@@ -81,8 +81,8 @@
     }
 
     @include media-breakpoint-up(lg) {
-      font-size: 50px;
-      line-height: 55px;
+      font-size: 60px;
+      line-height: 60px;
     }
   }
 
@@ -149,6 +149,7 @@
         position: absolute;
         opacity: 0.8;
         z-index: -1;
+        background-color: $cyan;
       }
     }
   }

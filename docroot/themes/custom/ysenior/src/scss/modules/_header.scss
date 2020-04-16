@@ -48,8 +48,12 @@
     transition: background-color 0.5s ease;
 
     &.affix {
+      background-color: transparent !important;
       /*updated*/
-      background-color: transparent;
+      .header-content {
+        opacity: 80%;
+        background-color: $dark-green-aa;
+      }
     }
 
     &.affix.menu-in,
