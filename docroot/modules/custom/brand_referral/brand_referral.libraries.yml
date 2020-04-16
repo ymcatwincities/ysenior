@@ -1,0 +1,4 @@
+brand_change:
+  version: 0.1
+  js:
+    js/brand_change.js: {}

@@ -1,0 +1,6 @@
+openy_system.brand_referral_settings:
+  title: 'Brand Referral settings'
+  description: 'Configure Node'
+  parent: openy_system.openy
+  route_name: brand_referral.settings
+  weight: 200
