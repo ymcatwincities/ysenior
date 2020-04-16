@@ -3,9 +3,18 @@
 }
 
 .node--blog--full {
+  padding-bottom: 30px;
+
   h1 {
     font-size: 48px;
     margin-bottom: 30px;
+  }
+
+  .node__content {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
 

@@ -1,5 +1,6 @@
 <?php
 use Drupal\image\Entity\ImageStyle;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_preprocess_ENTITY_TYPE().
@@ -30,8 +31,21 @@ function ysenior_preprocess_paragraph(array &$variables) {
  */
 function ysenior_preprocess_html(array &$variables) {
   if($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-    unset($variables['body_classes'][0]);
-    $variables['body_classes'][] = 'with-banner';
+    $paragraph_bundles = ['gallery','banner','small_banner','banner_fixed'];
+    $field = $term->get('field_taxonomy_content')->getValue();
+    $found_paragraphs = [];
+    foreach ($field as $field_paragraph) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+      $paragraph = Paragraph::load($field_paragraph['target_id']);
+
+      if ($paragraph && (empty($paragraph_bundles) || in_array($paragraph->bundle(), $paragraph_bundles))) {
+        $found_paragraphs[] = $paragraph;
+      }
+    }
+    if (count($found_paragraphs) > 0) {
+      unset($variables['body_classes'][0]);
+      $variables['body_classes'][] = 'with-banner';
+    }
   }
 }
 
@@ -40,6 +54,20 @@ function ysenior_preprocess_html(array &$variables) {
  */
 function ysenior_preprocess_page(array &$variables) {
   if($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-    $variables['logo_url'] = $variables['transparent_logo_url'];
+    $paragraph_bundles = ['gallery','banner','small_banner','banner_fixed'];
+    $field = $term->get('field_taxonomy_content')->getValue();
+    $found_paragraphs = [];
+    foreach ($field as $field_paragraph) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+      $paragraph = Paragraph::load($field_paragraph['target_id']);
+
+      if ($paragraph && (empty($paragraph_bundles) || in_array($paragraph->bundle(), $paragraph_bundles))) {
+        $found_paragraphs[] = $paragraph;
+      }
+    }
+
+    if (count($found_paragraphs) > 0) {
+      $variables['logo_url'] = $variables['transparent_logo_url'];
+    }
   }
 }
