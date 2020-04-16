@@ -8,9 +8,12 @@
   h1 {
     font-size: 48px;
     margin-bottom: 30px;
+    color: $gray-900;
   }
 
   .node__content {
+    color: $gray-900;
+    font-size: 18px;
     img {
       max-width: 100%;
       height: auto;
