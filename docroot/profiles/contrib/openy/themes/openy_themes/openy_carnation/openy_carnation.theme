@@ -8,7 +8,6 @@
  */
 
 use Drupal\block\Entity\Block;
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
@@ -83,7 +82,7 @@ function openy_carnation_preprocess_html(array &$variables) {
  * @param string $node_field_id
  * @return array
  */
-function search_node_paragraphs(ContentEntityInterface $node, array $paragraph_bundles, $node_field_id = '') {
+function search_node_paragraphs(NodeInterface $node, array $paragraph_bundles, $node_field_id = '') {
   $found_paragraphs = [];
   $field_ids = [];
   if (empty($node_field_id)) {
