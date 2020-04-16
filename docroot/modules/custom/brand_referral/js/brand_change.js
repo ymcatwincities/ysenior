@@ -23,7 +23,13 @@
                       .text(brand)
                       .addClass(['fas','fa-chevron-left'])
                       .attr('href', 'https://' + brand);
+                } else {
+                    $('.site-name span').text('WELLNA');
+                  $('.yslogan .fa-chevron-left').text('WELLNA');
                 }
+            } else {
+                $('.site-name span').text('WELLNA');
+                $('.yslogan').text('WELLNA');
             }
         }
     };
