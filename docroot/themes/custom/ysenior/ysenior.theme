@@ -30,8 +30,13 @@ function ysenior_preprocess_paragraph(array &$variables) {
  */
 function ysenior_preprocess_html(array &$variables) {
   if($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-    unset($variables['body_classes'][0]);
-    $variables['body_classes'][] = 'with-banner';
+    $p = \Drupal::routeMatch()->getParameters();
+
+    $banner_paragraphs = search_node_paragraphs($term, ['gallery','banner','small_banner','banner_fixed'], 'field_taxonomy_content');
+    if (count($banner_paragraphs) > 0) {
+      unset($variables['body_classes'][0]);
+      $variables['body_classes'][] = 'with-banner';
+    }
   }
 }
 
@@ -40,6 +45,9 @@ function ysenior_preprocess_html(array &$variables) {
  */
 function ysenior_preprocess_page(array &$variables) {
   if($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-    $variables['logo_url'] = $variables['transparent_logo_url'];
+    $banner_paragraphs = search_node_paragraphs($term, ['gallery','banner','small_banner','banner_fixed'], 'field_taxonomy_content');
+    if (count($banner_paragraphs) > 0) {
+      $variables['logo_url'] = $variables['transparent_logo_url'];
+    }
   }
 }
