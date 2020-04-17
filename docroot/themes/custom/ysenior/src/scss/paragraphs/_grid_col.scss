@@ -88,6 +88,7 @@
       font-size: 14px;
       line-height: 21px;
       text-align: left;
+      color: $gray-900;
     }
 
     img {
@@ -111,7 +112,7 @@
         @include cachet();
         text-transform: uppercase;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 44px;
         letter-spacing: -1px;
         text-align: center;
