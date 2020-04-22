@@ -84,7 +84,6 @@
 {% set bg_color  = content.field_blog_color['#items'].entity.field_color.value ? 'background-color: #' ~ content.field_blog_color['#items'].entity.field_color.value ~ '; ' : null %}
 
 <article{{ attributes.addClass(classes) }}>
-
   <div class="image">
     <a href="{{ url }}">{{ content.field_blog_image }}</a>
   </div>
@@ -99,7 +98,5 @@
 
   <div class="description">
     <a href="{{ url }}">{{ content.field_blog_description }}</a>
-  </div>
-
   </div>
 </article>
