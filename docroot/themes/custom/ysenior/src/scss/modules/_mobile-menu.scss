@@ -17,6 +17,10 @@
 
 .mobile-sidebar {
   background-color: $dark-green-aa;
+
+  .nav a:hover, .nav a[aria-expanded=true] {
+    background: $dark-green-aa;
+  }
 }
 
 .with-banner {
