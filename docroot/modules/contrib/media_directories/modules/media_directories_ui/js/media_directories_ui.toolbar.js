@@ -56,33 +56,67 @@
       // Add new media button.
       this.buttons.media_add.on('click', function (e) {
         e.preventDefault();
-        var ajaxSettings = {
-          url: Drupal.MediaBrowser.getUrl('media.add'),
-          submit: {
-            active_directory: Drupal.MediaBrowser.active_directory,
-            target_bundles: Drupal.MediaBrowser.targetBundles
+        var submitAjax = false;
+        if (drupalSettings.media_directories.selection_mode != 'keep') {
+          if (Drupal.MediaBrowser.getSelectedMids().length > 0) {
+            var $warningDialog = $('<div>' + Drupal.theme('mediaDirectoriesDeSelectionWarningAddMedia') + '</div>').appendTo('body');
+            Drupal.dialog($warningDialog, {
+              title: Drupal.t('Clear selection?'),
+              buttons: [{
+                text: Drupal.t('Cancel'),
+                click: function click() {
+                  $(this).dialog('close');
+                }
+              }, {
+                text: Drupal.t('OK'),
+                click: function click() {
+                  var ajaxSettings = {
+                    url: Drupal.MediaBrowser.getUrl('media.add'),
+                    submit: {
+                      active_directory: Drupal.MediaBrowser.active_directory,
+                      target_bundles: Drupal.MediaBrowser.targetBundles,
+                      selection_mode: drupalSettings.media_directories.selection_mode
+                    }
+                  };
+                  Drupal.ajax(ajaxSettings).execute();
+                  $(this).dialog('close');
+                }
+              }]
+            }).showModal();
           }
-        };
-        Drupal.ajax(ajaxSettings).execute();
+          else {
+            submitAjax = true;
+          }
+        }
+        else {
+          submitAjax = true;
+        }
+        if (submitAjax) {
+          var ajaxSettings = {
+            url: Drupal.MediaBrowser.getUrl('media.add'),
+            submit: {
+              active_directory: Drupal.MediaBrowser.active_directory,
+              target_bundles: Drupal.MediaBrowser.targetBundles,
+              selection_mode: drupalSettings.media_directories.selection_mode
+            }
+          };
+          Drupal.ajax(ajaxSettings).execute();
+        }
       });
 
       // Edit media button.
       this.buttons.media_edit.on('click', function (e) {
         e.preventDefault();
-        var mids = [];
 
         if ($(this).hasClass('is-disabled')) {
           return;
         }
 
-        $.each(Drupal.MediaBrowser.getSelectedMids(), function (key, value) {
-          mids.push(value);
-        });
         var ajaxSettings = {
           url: Drupal.MediaBrowser.getUrl('media.edit'),
           submit: {
             active_directory: Drupal.MediaBrowser.active_directory,
-            media_items: mids
+            media_items: Drupal.MediaBrowser.getSelectedMids()
           }
         };
         Drupal.ajax(ajaxSettings).execute();
@@ -195,6 +229,10 @@
   };
 
   Drupal.theme.mediaDirectoriesDeSelectionWarningChangeDirectoryModal = function () {
-    return '<p>' + Drupal.t('Your current selection will be cleared when change the directory.') + '</p><small class="description">' + Drupal.t('Media directories browser is in reset selection mode, as the entity browser does not support the selection of in-existent  items.') + '</small>';
+    return '<p>' + Drupal.t('Your current selection will be cleared when you change the directory.') + '</p><small class="description">' + Drupal.t('Media directories browser is in reset selection mode, as the entity browser does not support the selection of in-existent  items.') + '</small>';
+  };
+
+  Drupal.theme.mediaDirectoriesDeSelectionWarningAddMedia = function () {
+    return '<p>' + Drupal.t('Your current selection will be cleared when you add new media.') + '</p><small class="description">' + Drupal.t('Media directories browser is in reset selection mode, as the entity browser does not support the selection of in-existent  items.') + '</small>';
   };
 })(jQuery, Drupal, drupalSettings, Drupal.debounce);

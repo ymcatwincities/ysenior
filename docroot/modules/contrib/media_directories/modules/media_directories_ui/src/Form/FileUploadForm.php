@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Render\ElementInfoManagerInterface;
 use Drupal\Component\Utility\Environment;
@@ -28,10 +29,11 @@ class FileUploadForm extends AddMediaFormBase {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
    * @param \Drupal\Core\Utility\Token $token
+   * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
    * @param \Drupal\Core\Render\ElementInfoManagerInterface $element_info
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountProxyInterface $current_user, Token $token, ElementInfoManagerInterface $element_info) {
-    parent::__construct($entity_type_manager, $current_user, $token);
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountProxyInterface $current_user, Token $token, ThemeManagerInterface $theme_manager, ElementInfoManagerInterface $element_info) {
+    parent::__construct($entity_type_manager, $current_user, $token, $theme_manager);
     $this->elementInfo = $element_info;
   }
 
@@ -45,6 +47,7 @@ class FileUploadForm extends AddMediaFormBase {
       $container->get('entity_type.manager'),
       $container->get('current_user'),
       $container->get('token'),
+      $container->get('theme.manager'),
       $container->get('element_info')
     );
   }
@@ -115,6 +118,8 @@ class FileUploadForm extends AddMediaFormBase {
    */
   public function processUploadElement(array $element, FormStateInterface $form_state) {
     $element['upload_button']['#submit'] = ['::uploadButtonSubmit'];
+    /** @var \Drupal\media\MediaTypeInterface|string $media_type */
+    $media_type = $form_state->get('media_type');
     // Limit the validation errors to make sure
     // FormValidator::handleErrorsWithLimitedValidation doesn't remove the
     // current selection from the form state.
@@ -133,9 +138,10 @@ class FileUploadForm extends AddMediaFormBase {
       'url' => Url::fromRoute('media_directories_ui.media.add'),
         'options' => [
           'query' => [
-              'media_type' => ($form_state->get('media_type') ? $form_state->get('media_type')->id() : $form_state->get('selected_type')),
+              'media_type' => is_object($media_type) ? $media_type->id() : $media_type,
               'target_bundles' => $this->getTargetBundles($form_state),
               'active_directory' => $this->getDirectory($form_state),
+              'selection_mode' => $this->getSelectionMode($form_state),
               FormBuilderInterface::AJAX_FORM_REQUEST => TRUE,
             ],
         ],

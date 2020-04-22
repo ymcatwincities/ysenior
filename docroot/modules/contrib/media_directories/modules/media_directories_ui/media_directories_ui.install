@@ -25,8 +25,8 @@ function media_directories_ui_uninstall() {
 
   // Remove the styles directory and generated images.
   $browser_thumbnail_dir_uri = file_default_scheme() . '://styles/browser_thumbnail';
-  file_unmanaged_delete_recursive($browser_thumbnail_dir_uri);
-  if (file_prepare_directory($browser_thumbnail_dir_uri)) {
+  \Drupal::service('file_system')->deleteRecursive($browser_thumbnail_dir_uri);
+  if (\Drupal::service('file_system')->prepareDirectory($browser_thumbnail_dir_uri)) {
     \Drupal::service('file_system')->rmdir($browser_thumbnail_dir_uri);
   }
 }
@@ -140,7 +140,7 @@ function media_directories_ui_update_8003() {
     $config = $config_factory->getEditable($config_name);
 
     foreach ($config->get('content') as $field_name => $config_field) {
-      if ($config_field['type'] == 'entity_browser_entity_reference' &&
+      if (isset($config_field['type']) && $config_field['type'] == 'entity_browser_entity_reference' &&
         $config_field['settings']['entity_browser'] == 'media_browser') {
         $config_dependencies = $config->get('dependencies.config');
         $config_dependencies_new = array_diff($config_dependencies, ['entity_browser.browser.media_browser']);
@@ -151,5 +151,26 @@ function media_directories_ui_update_8003() {
         $config->save();
       }
     }
+  }
+}
+
+/**
+ * Rename the entity browsers labels.
+ */
+function media_directories_ui_update_8004() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_overview');
+  $config->set('label', 'Media Directories: Standalone');
+  $config->save();
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_modal');
+  $config->set('label', 'Media Directories: Field widget');
+  $config->save();
+  foreach (\Drupal::languageManager()->getLanguages() as $language) {
+    $config_translation = \Drupal::languageManager()->getLanguageConfigOverride($language->getId(), 'entity_browser.browser.media_directories_overview');
+    $config_translation->set('label', 'Media Directories: Standalone');
+    $config_translation->save();
+    $config_translation = \Drupal::languageManager()->getLanguageConfigOverride($language->getId(), 'entity_browser.browser.media_directories_modal');
+    $config_translation->set('label', 'Media Directories: Field widget');
+    $config_translation->save();
   }
 }

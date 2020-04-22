@@ -4,6 +4,7 @@ namespace Drupal\media_directories_ui\Form;
 use Drupal\Component\Render\PlainTextOutput;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -12,6 +13,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\file\Entity\File;
 use Drupal\media\MediaInterface;
 use Drupal\media\MediaTypeInterface;
@@ -50,16 +52,25 @@ abstract class AddMediaFormBase extends FormBase {
   protected $token;
 
   /**
+   * The theme manager.
+   *
+   * @var \Drupal\Core\Theme\ThemeManagerInterface
+   */
+  protected $themeManager;
+
+  /**
    * AddMediaFormBase constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
    * @param \Drupal\Core\Utility\Token $token
+   * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountProxyInterface $current_user, Token $token) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountProxyInterface $current_user, Token $token, ThemeManagerInterface $theme_manager) {
     $this->entityTypeManager = $entity_type_manager;
     $this->currentUser = $current_user;
     $this->token = $token;
+    $this->themeManager = $theme_manager;
   }
 
   /**
@@ -71,7 +82,8 @@ abstract class AddMediaFormBase extends FormBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('current_user'),
-      $container->get('token')
+      $container->get('token'),
+      $container->get('theme.manager')
     );
   }
 
@@ -105,16 +117,16 @@ abstract class AddMediaFormBase extends FormBase {
   /**
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *
-   * @return int|null
+   * @return int
    */
   protected function getDirectory(FormStateInterface $form_state) {
-    $directory_id = (int) $form_state->get('active_directory');
+    $directory_id = $form_state->get('active_directory');
 
-    if ($directory_id === MEDIA_DIRECTORY_ROOT) {
-      $directory_id = NULL;
+    if (empty($directory_id)) {
+      return MEDIA_DIRECTORY_ROOT;
     }
 
-    return $directory_id;
+    return (int) $directory_id;
   }
 
   /**
@@ -126,6 +138,17 @@ abstract class AddMediaFormBase extends FormBase {
     $bundles = $form_state->get('target_bundles');
 
     return $bundles;
+  }
+
+  /**
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *
+   * @return mixed
+   */
+  protected function getSelectionMode(FormStateInterface $form_state) {
+    $selection_mode = $form_state->get('selection_mode');
+
+    return $selection_mode;
   }
 
   /**
@@ -164,8 +187,15 @@ abstract class AddMediaFormBase extends FormBase {
     $form['#suffix'] = '</div>';
     // For 8.7.
     $form['#attached']['library'][] = 'media_library/style';
-    // For 8.8, style moved to seven theme. It should work with 8.7.
-    $form['#attached']['library'][] = 'seven/media_library';
+    // For 8.8, style moved to themes. It should work with 8.7.
+    $theme_name = $this->themeManager->getActiveTheme()->getName();
+    if ($theme_name == 'claro') {
+      $form['#attached']['library'][] = 'claro/media_library.theme';
+    }
+    else {
+      // By default we add the seven styles.
+      $form['#attached']['library'][] = 'seven/media_library';
+    }
 
     // The form is posted via AJAX. When there are messages set during the
     // validation or submission of the form, the messages need to be shown to
@@ -187,6 +217,13 @@ abstract class AddMediaFormBase extends FormBase {
       '#value' => $this->getDirectory($form_state),
     ];
 
+    $media_type = $form_state->get('media_type');
+
+    $form['media_type'] = [
+      '#type' => 'hidden',
+      '#value' => is_object($media_type) ? $media_type->id() : $media_type,
+    ];
+
     $target_bundles = $this->getTargetBundles($form_state);
 
     $form['target_bundles'] = [
@@ -199,6 +236,11 @@ abstract class AddMediaFormBase extends FormBase {
         '#value' => $bundle,
       ];
     }
+
+    $form['selection_mode'] = [
+      '#type' => 'hidden',
+      '#value' => $this->getSelectionMode($form_state),
+    ];
 
 
     if (empty($added_media)) {
@@ -263,14 +305,6 @@ abstract class AddMediaFormBase extends FormBase {
 
   abstract protected function buildInputElement(array $form, FormStateInterface $form_state);
 
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    /*if (!$form_state->isValueEmpty('upload')) {
-      $entities = $this->prepareEntities($form, $form_state);
-      $form_state->setValue('media', $entities);
-      $form_state->setStorage(['media' => $entities]);
-      $form_state->setRebuild();
-    }*/
-  }
 
   /**
    * Form submission handler.
@@ -283,16 +317,18 @@ abstract class AddMediaFormBase extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $added_media = $form_state->get('media');
 
+    // Support multi value fields.
     $tmp_tid_mids = [];
+    $all_mids = [];
     foreach ($added_media as $delta => $media) {
       EntityFormDisplay::collectRenderDisplay($media, 'media_library')
         ->extractFormValues($media, $form['media'][$delta]['fields'], $form_state);
       //$this->prepareMediaEntityForSave($media);
       $media->save();
       $tmp_tid_mids[(isset($media->get('directory')->target_id) ? $media->get('directory')->target_id : MEDIA_DIRECTORY_ROOT)][] = $media->id();
+      $all_mids[] = $media->id();
     }
 
-    // Support multi value fields.
     $tid_holding_most_mids  = -1;
     foreach ($tmp_tid_mids as $tid => $mids) {
       if (!isset($tmp_tid_mids[$tid_holding_most_mids]) ||
@@ -301,7 +337,16 @@ abstract class AddMediaFormBase extends FormBase {
       }
     }
 
-    $form_state->setValue('newly_added_media_ids', $tmp_tid_mids[$tid_holding_most_mids]);
+    if ($form_state->get('selection_mode') != 'keep') {
+      if (count($tmp_tid_mids[$tid_holding_most_mids]) < count($all_mids)) {
+        $this->messenger()->addStatus($this->t('You uploaded medias to different folders. Only medias in the current folder (having the most uploaded media count) are selected. '));
+      }
+      $form_state->setValue('newly_added_media_ids', $tmp_tid_mids[$tid_holding_most_mids]);
+    }
+    else {
+      $form_state->setValue('newly_added_media_ids', $all_mids);
+    }
+
     $form_state->setValue('most_choosen_directory_tid', $tid_holding_most_mids);
   }
 
@@ -441,19 +486,58 @@ abstract class AddMediaFormBase extends FormBase {
     }
     $form_display->buildForm($media, $element['fields'], $form_state);
 
-    // We hide the preview of the uploaded file in the image widget with CSS.
-    // @todo Improve hiding file widget elements in
-    //   https://www.drupal.org/project/drupal/issues/2987921
-    $source_field_name = $this->getSourceFieldName($this->getMediaType($form_state));
+    /** @var \Drupal\media\Entity\MediaType $type */
+    $type = $this->entityTypeManager->getStorage('media_type')->load($media->bundle());
+    $source_field_name = $this->getSourceFieldName($type);
+    // Add a class and process function.
     if (isset($element['fields'][$source_field_name])) {
       $element['fields'][$source_field_name]['#attributes']['class'][] = 'media-library-add-form__source-field';
+      $element['fields'][$source_field_name]['widget'][0]['#process'][] = [static::class, 'hideExtraSourceFieldComponents'];
     }
+    // Add source field name so that it can be identified in form alter and
+    // widget alter hooks.
+    $element['fields']['#source_field_name'] = $source_field_name;
+
     // The revision log field is currently not configurable from the form
     // display, so hide it by changing the access.
     // @todo Make the revision_log_message field configurable in
     //   https://www.drupal.org/project/drupal/issues/2696555
     if (isset($element['fields']['revision_log_message'])) {
       $element['fields']['revision_log_message']['#access'] = FALSE;
+    }
+
+    return $element;
+  }
+
+  /**
+   * Processes an image or file source field element.
+   *
+   * @param array $element
+   *   The entity form source field element.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current form state.
+   * @param $form
+   *   The complete form.
+   *
+   * @return array
+   *   The processed form element.
+   */
+  public static function hideExtraSourceFieldComponents($element, FormStateInterface $form_state, $form) {
+    // Remove original button added by ManagedFile::processManagedFile().
+    if (!empty($element['remove_button'])) {
+      $element['remove_button']['#access'] = FALSE;
+    }
+    // Remove preview added by ImageWidget::process().
+    if (!empty($element['preview'])) {
+      $element['preview']['#access'] = FALSE;
+    }
+
+    $element['#title_display'] = 'none';
+    $element['#description_display'] = 'none';
+
+    // Remove the filename display.
+    foreach ($element['#files'] as $file) {
+      $element['file_' . $file->id()]['filename']['#access'] = FALSE;
     }
     return $element;
   }
@@ -534,13 +618,14 @@ abstract class AddMediaFormBase extends FormBase {
       // shift focus back to the first tabbable element (which should be the
       // source field).
       if (empty($added_media)) {
-        // TODO throws an ajax exception when trying to remove last item.
         $build = [
           '#theme' => 'media_directories_add',
           '#selected_type' => $media_type->id(),
           '#active_directory' => $this->getDirectory($form_state),
           '#target_bundles' => $this->getTargetBundles($form_state),
+          '#media_library_form_rebuild' => TRUE,
         ];
+        $form_state->setRebuild();
         $response->addCommand(new ReplaceCommand('#media-library-add-form-wrapper', $build));
         //$response->addCommand(new InvokeCommand('#media-library-add-form-wrapper :tabbable', 'focus'));
       }
@@ -615,6 +700,12 @@ abstract class AddMediaFormBase extends FormBase {
     //$response->addCommand(new UpdateSelectionCommand($media_ids));
     $response->addCommand(new CloseModalDialogCommand());
     $response->addCommand(new RefreshDirectoryTree($form_state->getValue('most_choosen_directory_tid'), $form_state->getValue('newly_added_media_ids')));
+
+    $status_messages = ['#type' => 'status_messages'];
+    $messages = \Drupal::service('renderer')->renderRoot($status_messages);
+    if (!empty($messages)) {
+      $response->addCommand(new OpenModalDialogCommand('', $messages));
+    }
 
     return $response;
   }

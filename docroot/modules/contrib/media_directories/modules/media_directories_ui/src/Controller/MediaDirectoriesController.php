@@ -291,13 +291,26 @@ class MediaDirectoriesController extends ControllerBase {
    * @param \Symfony\Component\HttpFoundation\Request $request
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function mediaAdd(Request $request) {
     $response = new AjaxResponse();
+    $ui_config = $this->config('media_directories_ui.settings');
+    $combined_media_types = $ui_config->get('combined_upload_media_types');
     $active_directory = (int) $request->get('active_directory', MEDIA_DIRECTORY_ROOT);
     $target_bundles = $request->get('target_bundles');
+
+    // Find the types combined upload should handle.
+    // If types are limited and these are not allowed in combined upload,
+    // then the tab is hidden.
+    $combined_media_types_diff = array_intersect($target_bundles, $combined_media_types);
+
+    if (!empty($combined_media_types_diff) && $ui_config->get('enable_combined_upload')) {
+      $first_media_type = 'combined_upload';
+    }
+    else {
+      $first_media_type = reset($target_bundles);
+    }
+
     if ($target_bundles) {
       // Here we land if no file is present.
 
@@ -308,22 +321,21 @@ class MediaDirectoriesController extends ControllerBase {
         }
       }
 
-      $selected_type = $request->get('media_type', reset($target_bundles));
+      $selected_type = $request->get('media_type', $first_media_type);
     }
     else {
       // Here we land when a file was just picked by the user.
-      /** @var \Drupal\media\Entity\MediaType[] $types */
-      $types = $this->entityTypeManager()->getStorage('media_type')->loadMultiple();
-      $type_keys = array_keys($types);
-      $selected_type = $request->get('media_type', reset($type_keys));
+      $selected_type = $request->get('media_type', $first_media_type);
     }
 
     if (count($target_bundles) > 0) {
+      $selection_mode = $request->get('selection_mode');
       $build = [
         '#theme' => 'media_directories_add',
         '#selected_type' => $selected_type,
         '#active_directory' => $active_directory,
         '#target_bundles' => $target_bundles,
+        '#selection_mode' => $selection_mode,
       ];
 
       $response->addCommand(new OpenModalDialogCommand($this->t('Add media'), $build, ['width' => '800']));
@@ -332,7 +344,6 @@ class MediaDirectoriesController extends ControllerBase {
       $this->messenger()->addError($this->t('No permission found for the creation of any media type.'));
       $this->addMessagesToResponse($response);
     }
-
 
     return $response;
   }
@@ -352,6 +363,16 @@ class MediaDirectoriesController extends ControllerBase {
     $response = new AjaxResponse();
     $media_items = $request->request->get('media_items', []);
     $active_directory = (int) $request->request->get('active_directory', MEDIA_DIRECTORY_ROOT);
+    if (count($media_items) == 0) {
+      // We're probably in the AJAX Form-Callback of the MediaEditForm (inheriting AddMediaFormBase)
+      $media_items = $request->request->get('media', []);
+      $media_ids = [] ;
+      foreach ($media_items as $mid => $data) {
+        // The nested array needs to be removed as nothing will not be loaded like this.
+        $media_ids[$mid] = $mid;
+      }
+      $media_items = $media_ids;
+    }
     $media_entities = $this->entityTypeManager()->getStorage('media')->loadMultiple($media_items);
 
     foreach ($media_entities as $mid => $media_entity) {
