@@ -11,8 +11,8 @@ dependencies:
     - field.field.paragraph.grid_columns.field_prgf_grid_clm_description
     - paragraphs.paragraphs_type.grid_columns
   module:
-    - entity_browser
     - link
+    - openy_focal_point
     - text
 _core:
   default_config_hash: ceveVe_SlH23g8Zq9ZN468JWviXZI26EiXchU9lVAmk
@@ -42,14 +42,15 @@ content:
     settings:
       entity_browser: images_library
       field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
+      field_widget_edit: '1'
+      field_widget_remove: '1'
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: thumbnail_for_preview
-      open: false
+      field_widget_replace: 0
+      open: 0
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: openy_focal_point_entity_browser_entity_reference
     region: content
   field_prgf_clm_link:
     weight: 4
